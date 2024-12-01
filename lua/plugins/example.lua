@@ -1,6 +1,6 @@
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
--- if true then return {} end
+if true then return {} end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
 --
@@ -63,23 +63,18 @@ return {
     },
   },
 
+  -- add pyright to lspconfig
   {
     "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
     opts = {
+      ---@type lspconfig.options
       servers = {
-        basedpyright = {
-          settings = {
-            basedpyright = {
-              analysis = {
-                typeCheckingMode = "off",
-              },
-            },
-          },
-        },
+        -- pyright will be automatically installed with mason and loaded with lspconfig
+        pyright = {},
       },
     },
   },
-
 
   -- add tsserver and setup with typescript.nvim instead of lspconfig
   {
@@ -162,7 +157,11 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function(_, opts)
-      table.insert(opts.sections.lualine_x, "😄")
+      table.insert(opts.sections.lualine_x, {
+        function()
+          return "😄"
+        end,
+      })
     end,
   },
 
@@ -181,7 +180,7 @@ return {
   { import = "lazyvim.plugins.extras.ui.mini-starter" },
 
   -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
-  -- { import = "lazyvim.plugins.extras.lang.json" },
+  { import = "lazyvim.plugins.extras.lang.json" },
 
   -- add any tools you want to have installed below
   {
@@ -195,78 +194,4 @@ return {
       },
     },
   },
-
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
-  },
-
-  {
-    "hedyhli/outline.nvim",
-    keys = { { "<leader>cs", "<cmd>Outline<cr>", desc = "Toggle Outline" } },
-    cmd = "Outline",
-    opts = function()
-      local defaults = require("outline.config").defaults
-      local opts = {
-        symbols = {
-          icons = {},
-          filter = vim.deepcopy(LazyVim.config.kind_filter),
-        },
-        keymaps = {
-          up_and_jump = "<up>",
-          down_and_jump = "<down>",
-        },
-      }
-
-      for kind, symbol in pairs(defaults.symbols.icons) do
-        opts.symbols.icons[kind] = {
-          icon = LazyVim.config.icons.kinds[kind] or symbol.icon,
-          hl = symbol.hl,
-        }
-      end
-      return opts
-    end,
-  },
-
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      default_format_opts = {
-        timeout_ms = 3000,
-        async = false, -- not recommended to change
-        quiet = false, -- not recommended to change
-        lsp_format = "fallback", -- not recommended to change
-      },
-      formatters_by_ft = {
-        lua = { "stylua" },
-        fish = { "fish_indent" },
-        sh = { "shfmt" },
-        python = { "black" },
-        rust = { "rustfmt" },
-      },
-      -- The options you set here will be merged with the builtin formatters.
-      -- You can also define any custom formatters here.
-      ---@type table<string, conform.FormatterConfigOverride|fun(bufnr: integer): nil|conform.FormatterConfigOverride>
-      formatters = {
-        injected = { options = { ignore_errors = true } },
-        -- # Example of using dprint only when a dprint.json file is present
-        -- dprint = {
-        --   condition = function(ctx)
-        --     return vim.fs.find({ "dprint.json" }, { path = ctx.filename, upward = true })[1]
-        --   end,
-        -- },
-        --
-        -- # Example of using shfmt with extra args
-        -- shfmt = {
-        --   prepend_args = { "-i", "2", "-ci" },
-        -- },
-      },
-    }
-  }
 }
