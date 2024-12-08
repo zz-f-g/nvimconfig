@@ -10,3 +10,4 @@ opt.wrap = true
 opt.winbar = "%=%m %f" -- display current file abspath
 opt.foldmethod = "indent"
 opt.spell = false
+opt.mouse = ""
