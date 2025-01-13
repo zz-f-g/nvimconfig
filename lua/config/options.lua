@@ -3,6 +3,7 @@
 -- Add any additional options here
 
 vim.g.autoformat = false
+vim.g.root_spec = { "cwd" }
 
 local opt = vim.opt
 -- opt.expandtab = false
