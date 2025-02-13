@@ -1,4 +1,4 @@
 return {
   -- disable snacks
-  { "folke/snacks.nvim", enable = false }
+  { "folke/flash.nvim", enable = false }
 }
