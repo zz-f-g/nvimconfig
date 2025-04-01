@@ -4,6 +4,7 @@
 
 vim.g.autoformat = false
 vim.g.root_spec = { "cwd" }
+vim.g.snacks_animate = false
 
 local opt = vim.opt
 -- opt.expandtab = false
