@@ -37,13 +37,19 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+local function is_subpath(path, parent)
+    local real_path = vim.fn.resolve(path)
+    local real_parent = vim.fn.resolve(parent)
+    return vim.startswith(real_path, real_parent)
+end
+
 -- set readonly if file opened not under cwd
 vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function(args)
     local buf = args.buf
     local filename = vim.api.nvim_buf_get_name(buf)
     local cwd = vim.fn.getcwd()
-    if filename ~= "" and not filename:find("^" .. vim.fn.escape(cwd, "\\") .. "/") then
+    if filename ~= "" and not is_subpath(filename, cwd) then
       vim.bo[buf].readonly = true
       vim.bo[buf].modifiable = false
       vim.notify("Opened outside CWD, set to readonly: " .. filename, vim.log.levels.WARN)
