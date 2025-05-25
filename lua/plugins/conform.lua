@@ -11,6 +11,7 @@ return {
       formatters_by_ft = {
         python = { "black" },
         rust = { "rustfmt" },
+        lua = { "stylua" },
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.
