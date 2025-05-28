@@ -1,0 +1,381 @@
+{
+  "hat": {
+    "prefix": "hat",
+    "body": "\\hat{$1}$0",
+    "description": "Insert \\hat{}"
+  },
+  "inte": {
+    "prefix": "inte",
+    "body": "\\int_{$1:0}^{$2:\\inf}$0",
+    "description": "Insert integral with limit"
+  },
+  "sum": {
+    "prefix": "sum",
+    "body": "\\sum$0",
+    "description": "Insert \\sum"
+  },
+  "summ": {
+    "prefix": "summ",
+    "body": "\\sum\\limits_{$1:i=1}^{$2:N}$0",
+    "description": "Insert \\sum with limits"
+  },
+  "prod": {
+    "prefix": "prod",
+    "body": "\\prod",
+    "description": "Insert \\prod"
+  },
+  "produ": {
+    "prefix": "produ",
+    "body": "\\prod_{$1:i=1}^{$2:N}$0",
+    "description": "Insert \\prod with limits"
+  },
+  "lim": {
+    "prefix": "lim",
+    "body": "\\lim",
+    "description": "Insert \\lim"
+  },
+  "limi": {
+    "prefix": "limi",
+    "body": "\\lim_{$1}$0",
+    "description": "Insert \\lim with subscript"
+  },
+  "oo": {
+    "prefix": "oo",
+    "body": "\\infty",
+    "description": "Insert infinity symbol"
+  },
+  "dot": {
+    "prefix": "dot",
+    "body": "\\dot{$1}$0",
+    "description": "Insert \\dot{}"
+  },
+  "dfrac": {
+    "prefix": "dfrac",
+    "body": "\\dfrac{$1}{$2}$0",
+    "description": "Insert \\dfrac{}{}"
+  },
+  "frac": {
+    "prefix": "frac",
+    "body": "\\frac{$1}{}$0",
+    "description": "Insert \\frac{}{}"
+  },
+  "lrp": {
+    "prefix": "lrp",
+    "body": "\\left( $1 \\right)$0",
+    "description": "Insert left( right)"
+  },
+  "lrb": {
+    "prefix": "lrb",
+    "body": "\\left[ $1 \\right]$0",
+    "description": "Insert left[ right]"
+  },
+  "lrB": {
+    "prefix": "lrB",
+    "body": "\\left\\{ $1 \\right\\}$0",
+    "description": "Insert left{ right}"
+  },
+  "lra": {
+    "prefix": "lra",
+    "body": "\\left\\{ $1 \\right.$0",
+    "description": "Insert left{ right."
+  },
+  "lrV": {
+    "prefix": "lrV",
+    "body": "\\left| $1 \\right|$0",
+    "description": "Insert left| right|"
+  },
+  "lrv": {
+    "prefix": "lrv",
+    "body": "\\left. $1 \\right|$0",
+    "description": "Insert left. right|"
+  },
+  "bi": {
+    "prefix": "bi",
+    "body": "\\binom{$1}{$2}$0",
+    "description": "Insert \\binom{}{}"
+  },
+  "wt": {
+    "prefix": "wt",
+    "body": "\\widetilde{$1}$0",
+    "description": "Insert \\widetilde{}"
+  },
+  "ov": {
+    "prefix": "ov",
+    "body": "\\overline{$1}$0",
+    "description": "Insert \\overline{}"
+  },
+  "sc": {
+    "prefix": "sc",
+    "body": "\\mathscr{$1}$0",
+    "description": "Insert \\mathscr{}"
+  },
+  "fa": {
+    "prefix": "fa",
+    "body": "\\forall",
+    "description": "Insert \\forall"
+  },
+  "ex": {
+    "prefix": "ex",
+    "body": "\\exists",
+    "description": "Insert \\exists"
+  },
+  "bs": {
+    "prefix": "bs",
+    "body": "\\boldsymbol{$1}$0",
+    "description": "Insert \\boldsymbol{}"
+  },
+  "Ve": {
+    "prefix": "Ve",
+    "body": "\\Vert",
+    "description": "Insert \\Vert"
+  },
+  "pa": {
+    "prefix": "pa",
+    "body": "\\partial",
+    "description": "Insert \\partial"
+  },
+  "na": {
+    "prefix": "na",
+    "body": "\\nabla",
+    "description": "Insert \\nabla"
+  },
+  "rm": {
+    "prefix": "rm",
+    "body": "\\mathrm{$1}$0",
+    "description": "Insert \\mathrm{}"
+  },
+  "ri": {
+    "prefix": "ri",
+    "body": "\\rightarrow",
+    "description": "Insert \\rightarrow"
+  },
+  "Ri": {
+    "prefix": "Ri",
+    "body": "\\Rightarrow",
+    "description": "Insert \\Rightarrow"
+  },
+  "sq": {
+    "prefix": "sq",
+    "body": "\\sqrt{$1}$0",
+    "description": "Insert \\sqrt{}"
+  },
+  "bb": {
+    "prefix": "bb",
+    "body": "\\mathbb{$1}$0",
+    "description": "Insert \\mathbb{}"
+  },
+  "bf": {
+    "prefix": "bf",
+    "body": "\\mathbf{$1}$0",
+    "description": "Insert \\mathbf{}"
+  },
+  "te": {
+    "prefix": "te",
+    "body": "\\text{$1}$0",
+    "description": "Insert \\text{}"
+  },
+  "cd": {
+    "prefix": "cd",
+    "body": "\\cdot",
+    "description": "Insert \\cdot"
+  },
+  "qu": {
+    "prefix": "qu",
+    "body": "\\quad",
+    "description": "Insert \\quad"
+  },
+  "xx": {
+    "prefix": "xx",
+    "body": "\\times",
+    "description": "Insert \\times"
+  },
+  "alpha": {
+    "prefix": "alpha",
+    "body": "\\alpha",
+    "description": "Insert \\alpha"
+  },
+  "beta": {
+    "prefix": "beta",
+    "body": "\\beta",
+    "description": "Insert \\beta"
+  },
+  "gamma": {
+    "prefix": "gamma",
+    "body": "\\gamma",
+    "description": "Insert \\gamma"
+  },
+  "Gamma": {
+    "prefix": "Gamma",
+    "body": "\\Gamma",
+    "description": "Insert \\Gamma"
+  },
+  "delta": {
+    "prefix": "delta",
+    "body": "\\delta",
+    "description": "Insert \\delta"
+  },
+  "Delta": {
+    "prefix": "Delta",
+    "body": "\\Delta",
+    "description": "Insert \\Delta"
+  },
+  "epsilon": {
+    "prefix": "epsilon",
+    "body": "\\epsilon",
+    "description": "Insert \\epsilon"
+  },
+  "varepsilon": {
+    "prefix": "varepsilon",
+    "body": "\\varepsilon",
+    "description": "Insert \\varepsilon"
+  },
+  "zeta": {
+    "prefix": "zeta",
+    "body": "\\zeta",
+    "description": "Insert \\zeta"
+  },
+  "eta": {
+    "prefix": "eta",
+    "body": "\\eta",
+    "description": "Insert \\eta"
+  },
+  "theta": {
+    "prefix": "theta",
+    "body": "\\theta",
+    "description": "Insert \\theta"
+  },
+  "Theta": {
+    "prefix": "Theta",
+    "body": "\\Theta",
+    "description": "Insert \\Theta"
+  },
+  "iota": {
+    "prefix": "iota",
+    "body": "\\iota",
+    "description": "Insert \\iota"
+  },
+  "kappa": {
+    "prefix": "kappa",
+    "body": "\\kappa",
+    "description": "Insert \\kappa"
+  },
+  "lambda": {
+    "prefix": "lambda",
+    "body": "\\lambda",
+    "description": "Insert \\lambda"
+  },
+  "Lambda": {
+    "prefix": "Lambda",
+    "body": "\\Lambda",
+    "description": "Insert \\Lambda"
+  },
+  "mu": {
+    "prefix": "mu",
+    "body": "\\mu",
+    "description": "Insert \\mu"
+  },
+  "nu": {
+    "prefix": "nu",
+    "body": "\\nu",
+    "description": "Insert \\nu"
+  },
+  "xi": {
+    "prefix": "xi",
+    "body": "\\xi",
+    "description": "Insert \\xi"
+  },
+  "Xi": {
+    "prefix": "Xi",
+    "body": "\\Xi",
+    "description": "Insert \\Xi"
+  },
+  "pi": {
+    "prefix": "pi",
+    "body": "\\pi",
+    "description": "Insert \\pi"
+  },
+  "Pi": {
+    "prefix": "Pi",
+    "body": "\\Pi",
+    "description": "Insert \\Pi"
+  },
+  "rho": {
+    "prefix": "rho",
+    "body": "\\rho",
+    "description": "Insert \\rho"
+  },
+  "sigma": {
+    "prefix": "sigma",
+    "body": "\\sigma",
+    "description": "Insert \\sigma"
+  },
+  "Sigma": {
+    "prefix": "Sigma",
+    "body": "\\Sigma",
+    "description": "Insert \\Sigma"
+  },
+  "tau": {
+    "prefix": "tau",
+    "body": "\\tau",
+    "description": "Insert \\tau"
+  },
+  "upsilon": {
+    "prefix": "upsilon",
+    "body": "\\upsilon",
+    "description": "Insert \\upsilon"
+  },
+  "Upsilon": {
+    "prefix": "Upsilon",
+    "body": "\\Upsilon",
+    "description": "Insert \\Upsilon"
+  },
+  "phi": {
+    "prefix": "phi",
+    "body": "\\phi",
+    "description": "Insert \\phi"
+  },
+  "varphi": {
+    "prefix": "varphi",
+    "body": "\\varphi",
+    "description": "Insert \\varphi"
+  },
+  "Phi": {
+    "prefix": "Phi",
+    "body": "\\Phi",
+    "description": "Insert \\Phi"
+  },
+  "chi": {
+    "prefix": "chi",
+    "body": "\\chi",
+    "description": "Insert \\chi"
+  },
+  "psi": {
+    "prefix": "psi",
+    "body": "\\psi",
+    "description": "Insert \\psi"
+  },
+  "Psi": {
+    "prefix": "Psi",
+    "body": "\\Psi",
+    "description": "Insert \\Psi"
+  },
+  "omega": {
+    "prefix": "omega",
+    "body": "\\omega",
+    "description": "Insert \\omega"
+  },
+  "Omega": {
+    "prefix": "Omega",
+    "body": "\\Omega",
+    "description": "Insert \\Omega"
+  },
+  "Begin-End Environment": {
+    "prefix": "beg",
+    "body": [
+      "\\begin{${1:environment}}",
+      "  $0",
+      "\\end{$1}"
+    ],
+    "description": "Insert \\begin{env}...\\end{env} block"
+  }
+}
