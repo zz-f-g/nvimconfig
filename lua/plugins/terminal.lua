@@ -111,6 +111,14 @@ return {
         start_insert = false,
         auto_insert = false,
       },
+      dashboard = {
+        sections = {
+          { section = "header" },
+          { title = "Projects", padding = 1 },
+          { section = "projects", padding = 1, limit = 15 },
+          { section = "startup" },
+        },
+      }
     },
   },
 }
