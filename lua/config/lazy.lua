@@ -50,4 +50,7 @@ require("lazy").setup({
       },
     },
   },
+  git = {
+    url_format = "git@github.com:%s.git",
+  }
 })
