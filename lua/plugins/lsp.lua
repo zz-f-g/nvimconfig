@@ -77,6 +77,7 @@ return {
             clangdFileStatus = true,
           },
         },
+        rust_analyzer = {},
       },
     },
   },
