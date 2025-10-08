@@ -27,6 +27,7 @@ opt.wrap = true
 opt.winbar = "%=%m %f" -- display current file abspath
 opt.foldmethod = "indent"
 opt.spell = false
+opt.scrolloff = 0
 
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+-- vim.opt.foldmethod = 'expr'
+-- vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
