@@ -72,7 +72,7 @@ local function smart_goto_file(terminal_instance)
   end
 
   -- Hide terminal
-  terminal_instance:hide()
+  -- terminal_instance:hide()
 
   -- Navigate to file and specified line
   vim.schedule(function()
@@ -102,14 +102,13 @@ return {
     "folke/snacks.nvim",
     opts = {
       terminal = {
+        interactive = false,
         win = {
-          position = "float",
+          -- position = "float",
           keys = {
             gF = smart_goto_file,
           }
         },
-        start_insert = false,
-        auto_insert = false,
       },
       dashboard = {
         sections = {
@@ -118,7 +117,9 @@ return {
           { section = "projects", padding = 1, limit = 15 },
           { section = "startup" },
         },
-      }
+      },
+      -- image = {
+      -- },
     },
   },
 }
