@@ -28,6 +28,23 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
+-- terminal double <c-\\> to normal mode
+vim.api.nvim_create_autocmd({ "TermOpen" }, {
+  group = nativeTermGroup,
+  pattern = "term://*",
+  callback = function(event)
+    local buf = event.buf
+    vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode", buffer = buf, nowait = true })
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "markdown" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("wrap_spell"),
   pattern = { "gitcommit", "markdown" },
@@ -64,5 +81,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
       local win = vim.api.nvim_get_current_win()
       vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
     end
+  end,
+})
+
+vim.api.nvim_create_autocmd("TermEnter", {
+  group = nativeTermGroup,
+  pattern = "term://*",
+  callback = function(event)
+    local buf = event.buf
+    pcall(vim.keymap.del, "t", "<C-h>", { buffer = buf, nowait=true })
+    pcall(vim.keymap.del, "t", "<C-j>", { buffer = buf, nowait=true })
+    pcall(vim.keymap.del, "t", "<C-k>", { buffer = buf, nowait=true })
+    pcall(vim.keymap.del, "t", "<C-l>", { buffer = buf, nowait=true })
   end,
 })
