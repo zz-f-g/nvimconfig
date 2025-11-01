@@ -28,6 +28,8 @@ opt.winbar = "%=%m %f" -- display current file abspath
 opt.foldmethod = "indent"
 opt.spell = false
 opt.scrolloff = 0
+opt.undofile = true                      -- Enable persistent undo
+opt.undodir = vim.fn.expand("~/.undodir") -- Set custom undo directory
 
 -- vim.opt.foldmethod = 'expr'
 -- vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
