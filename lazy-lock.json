@@ -41,5 +41,5 @@
   "vimtex": { "branch": "master", "commit": "77f31bd02cec678823c8614e6400db97390b5ce7" },
   "vivify.vim": { "branch": "main", "commit": "99a1539a440633ee7a164e094a736c04acc2335d" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
-  "yazi.nvim": { "branch": "main", "commit": "acaa305ce150d426a7fa8aa3064213d17f8af69f" }
+  "yazi.nvim": { "branch": "main", "commit": "d5eb45fd860f27fdb91383776be2ca473d4b40bb" }
 }
