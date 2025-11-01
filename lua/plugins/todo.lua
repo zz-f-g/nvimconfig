@@ -5,10 +5,12 @@ return {
     opts = {
       todo_states = {
         checked = {
-          marker = "[x]" -- how it appears in Neovim
+          marker = "[x]", -- how it appears in Neovim
+          order = 1,
         },
         unchecked = {
-          marker = "[ ]" -- how it appears in Neovim
+          marker = "[ ]", -- how it appears in Neovim
+          order = 2,
         }
       },
       -- files = { "*.md" }, -- any .md file (instead of defaults)
