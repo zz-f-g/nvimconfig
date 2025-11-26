@@ -72,7 +72,7 @@ local function smart_goto_file(terminal_instance)
   end
 
   -- Hide terminal
-  -- terminal_instance:hide()
+  terminal_instance:hide()
 
   -- Navigate to file and specified line
   vim.schedule(function()
