@@ -99,6 +99,12 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      setup = {
+        ["*"] = function()
+          vim.opt.foldmethod = "manual"
+          return false
+        end,
+      },
       servers = {
         basedpyright = { -- pyright but based. manually install off PyPI
           mason = false,

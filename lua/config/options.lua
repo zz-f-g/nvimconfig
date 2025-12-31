@@ -25,7 +25,6 @@ local opt = vim.opt
 -- opt.expandtab = false
 opt.wrap = true
 opt.winbar = "%=%m %f" -- display current file abspath
-opt.foldmethod = "indent"
 opt.spell = false
 opt.scrolloff = 0
 opt.undofile = true                      -- Enable persistent undo
