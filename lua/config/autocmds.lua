@@ -66,7 +66,16 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     local buf = args.buf
     local filename = vim.api.nvim_buf_get_name(buf)
     local cwd = vim.fn.getcwd()
+
+    local excluded_dirs = {
+      vim.fn.expand("$HOME/.local/share/nvim/scratch")
+    }
     if filename ~= "" and not is_subpath(filename, cwd) then
+      for _, dir in ipairs(excluded_dirs) do
+        if vim.startswith(filename, dir) then
+          return
+        end
+      end
       vim.bo[buf].readonly = true
       vim.bo[buf].modifiable = false
       vim.notify("Opened outside CWD, set to readonly: " .. filename, vim.log.levels.WARN)
