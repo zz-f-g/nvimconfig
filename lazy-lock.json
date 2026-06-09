@@ -23,6 +23,7 @@
   "neo-tree.nvim": { "branch": "main", "commit": "6ae25da4e33717d69fbcded98b513318b3f5fc7a" },
   "noice.nvim": { "branch": "main", "commit": "0427460c2d7f673ad60eb02b35f5e9926cf67c59" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
+  "nvim-autopairs": { "branch": "master", "commit": "59bce2eef357189c3305e25bc6dd2d138c1683f5" },
   "nvim-lint": { "branch": "master", "commit": "0864f81c681e15d9bdc1156fe3a17bd07db5a3ed" },
   "nvim-lspconfig": { "branch": "master", "commit": "ef73a4f2a1ddf0439eb97b46de2aab265ddba1cd" },
   "nvim-surround": { "branch": "main", "commit": "a868c256c861044beb9794b4dd126480dcdfbdad" },

@@ -118,8 +118,8 @@ return {
           { section = "startup" },
         },
       },
-      -- image = {
-      -- },
+      image = {
+      },
     },
   },
 }

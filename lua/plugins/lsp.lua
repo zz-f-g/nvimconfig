@@ -101,7 +101,7 @@ return {
     opts = {
       setup = {
         ["*"] = function()
-          vim.opt.foldmethod = "manual"
+          vim.opt.foldmethod = "indent"
           return false
         end,
       },
@@ -125,6 +125,12 @@ return {
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
                 diagnosticMode = 'openFilesOnly',
+                inlayHints = {
+                  variableTypes = false,
+                  callArgumentNames = true,
+                  functionReturnTypes = true,
+                  genericTypes = false,
+                },
               },
             },
           },

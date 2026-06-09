@@ -5,6 +5,10 @@
 vim.g.autoformat = false
 vim.g.root_spec = { "cwd" }
 vim.g.snacks_animate = false
+vim.g.python_indent = {
+  closed_paren_align_last_line = false,
+  open_paren = "shiftwidth()",
+}
 -- CLipboard over ssh
 local ssh_connection = vim.fn.getenv("SSH_CONNECTION")
 if ssh_connection ~= vim.NIL then
