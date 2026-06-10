@@ -119,6 +119,7 @@ return {
         },
       },
       image = {
+        enabled = false,
       },
     },
   },
