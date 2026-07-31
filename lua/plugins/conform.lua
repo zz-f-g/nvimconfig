@@ -12,6 +12,7 @@ return {
         python = { "black" },
         rust = { "rustfmt" },
         lua = { "stylua" },
+        typst = { "typstyle" },
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.

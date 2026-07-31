@@ -302,6 +302,13 @@ return {
             end, { desc = 'Reload current cargo workspace' })
           end,
         },
+        tinymist = {
+          settings = {
+            formatterMode = "typstyle",
+            exportPdf = "onType",
+            semanticTokens = "disable",
+          }
+        }
       },
     },
   },
