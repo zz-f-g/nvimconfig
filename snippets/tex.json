@@ -1,0 +1,21 @@
+{
+  "Subscript": {
+    "prefix": "__",
+    "body": "_{$1}$0",
+    "description": "Insert a subscript"
+  },
+  "Superscript": {
+    "prefix": "^^",
+    "body": "^{$1}$0",
+    "description": "Insert a superscript"
+  },
+  "Begin-End Environment": {
+    "prefix": "begin",
+    "body": [
+      "\\\\begin{$1}",
+      "\t$0",
+      "\\\\end{$1}"
+    ],
+    "description": "Insert a begin-end environment"
+  }
+}

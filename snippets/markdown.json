@@ -61,32 +61,32 @@
   },
   "lrp": {
     "prefix": "lrp",
-    "body": "\\left( $1 \\right)$0",
+    "body": "\\left( $0 \\right)",
     "description": "Insert left( right)"
   },
   "lrb": {
     "prefix": "lrb",
-    "body": "\\left[ $1 \\right]$0",
+    "body": "\\left[ $0 \\right]",
     "description": "Insert left[ right]"
   },
   "lrB": {
     "prefix": "lrB",
-    "body": "\\left\\{ $1 \\right\\}$0",
+    "body": "\\left\\{ $0 \\right\\\\}",
     "description": "Insert left{ right}"
   },
   "lra": {
     "prefix": "lra",
-    "body": "\\left\\{ $1 \\right.$0",
+    "body": "\\left\\{ $0 \\right.",
     "description": "Insert left{ right."
   },
   "lrV": {
     "prefix": "lrV",
-    "body": "\\left| $1 \\right|$0",
+    "body": "\\left| $0 \\right|",
     "description": "Insert left| right|"
   },
   "lrv": {
     "prefix": "lrv",
-    "body": "\\left. $1 \\right|$0",
+    "body": "\\left. $0 \\right|",
     "description": "Insert left. right|"
   },
   "bi": {
