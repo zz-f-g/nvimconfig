@@ -9,20 +9,24 @@ vim.g.python_indent = {
   closed_paren_align_last_line = false,
   open_paren = "shiftwidth()",
 }
--- CLipboard over ssh
-local ssh_connection = vim.fn.getenv("SSH_CONNECTION")
-if ssh_connection ~= vim.NIL then
-    vim.g.clipboard = {
-        name = 'OSC 52',
-        copy = {
-            ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-            ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-        },
-        paste = {
-            ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-            ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-        },
-    }
+-- Copy to the local clipboard over SSH; paste using the terminal's Ctrl-Shift-V.
+if vim.env.SSH_CONNECTION then
+  local osc52 = require("vim.ui.clipboard.osc52")
+  -- The provider requires paste callbacks. Return no text instead of querying the terminal.
+  local function no_paste()
+    return {}
+  end
+  vim.g.clipboard = {
+    name = "OSC 52 (copy only)",
+    copy = {
+      ["+"] = osc52.copy("+"),
+      ["*"] = osc52.copy("*"),
+    },
+    paste = {
+      ["+"] = no_paste,
+      ["*"] = no_paste,
+    },
+  }
 end
 
 local opt = vim.opt
