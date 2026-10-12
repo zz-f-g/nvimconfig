@@ -86,6 +86,22 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 local terminal_group = augroup("native_terminal")
+-- Track shell-reported CWD for relative file jumps, without changing Neovim's CWD.
+-- https://neovim.io/doc/user/terminal/#terminal-osc7
+vim.api.nvim_create_autocmd("TermRequest", {
+  group = augroup("terminal_cwd"),
+  desc = "Track terminal working directory from OSC 7",
+  callback = function(event)
+    local uri = event.data.sequence:match("^\027%]7;(file://[^%z\1-\31]+)")
+    if uri then
+      local dir = vim.uri_to_fname(uri)
+      if vim.fn.isdirectory(dir) == 1 then
+        vim.b[event.buf].osc7_dir = dir
+      end
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd("TermOpen", {
   group = terminal_group,
   desc = "Double Escape to normal mode in native terminals",
