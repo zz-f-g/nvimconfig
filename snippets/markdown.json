@@ -6,7 +6,7 @@
   },
   "inte": {
     "prefix": "inte",
-    "body": "\\int_{$1:0}^{$2:\\inf}$0",
+    "body": "\\\\int_{${1:0}}^{${2:\\\\infty}}$0",
     "description": "Insert integral with limit"
   },
   "sum": {
@@ -16,7 +16,7 @@
   },
   "summ": {
     "prefix": "summ",
-    "body": "\\sum\\limits_{$1:i=1}^{$2:N}$0",
+    "body": "\\\\sum\\\\limits_{${1:i=1}}^{${2:N}}$0",
     "description": "Insert \\sum with limits"
   },
   "prod": {
@@ -26,7 +26,7 @@
   },
   "produ": {
     "prefix": "produ",
-    "body": "\\prod_{$1:i=1}^{$2:N}$0",
+    "body": "\\\\prod_{${1:i=1}}^{${2:N}}$0",
     "description": "Insert \\prod with limits"
   },
   "lim": {
@@ -56,7 +56,7 @@
   },
   "frac": {
     "prefix": "frac",
-    "body": "\\frac{$1}{}$0",
+    "body": "\\frac{$1}{$2}$0",
     "description": "Insert \\frac{}{}"
   },
   "lrp": {
