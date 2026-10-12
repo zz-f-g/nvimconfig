@@ -11,6 +11,9 @@ return {
         }
       },
       sources = {
+        per_filetype = {
+          opencode_ask = { "lsp", "buffer" },
+        },
         providers = {
           snippets = {
             override = {
