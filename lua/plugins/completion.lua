@@ -1,47 +1,49 @@
-local local_snippet_filetypes = { markdown = true, tex = true }
+local local_snippet_sources = { "lsp", "path", "local_snippets", "buffer" }
 
 return {
   {
-    'saghen/blink.cmp',
-    event = { "BufReadPost", "BufNewFile" },
+    "saghen/blink.cmp",
     opts = {
       completion = {
-        documentation = {
-          auto_show = true,
-        }
+        list = {
+          selection = { auto_insert = false },
+        },
+        menu = {
+          draw = {
+            columns = {
+              { "kind_icon" },
+              { "label", "label_description", gap = 1 },
+              { "source_name" },
+            },
+          },
+        },
       },
       sources = {
         per_filetype = {
+          markdown = local_snippet_sources,
+          tex = local_snippet_sources,
+          plaintex = local_snippet_sources,
           opencode_ask = { "lsp", "buffer" },
         },
         providers = {
-          snippets = {
+          -- Separate from the default provider so friendly-snippets' global snippets are excluded too.
+          local_snippets = {
+            name = "Local Snippets",
+            module = "blink.cmp.sources.snippets",
+            score_offset = -1,
+            opts = { friendly_snippets = false },
             override = {
               get_trigger_characters = function()
                 return { "^" }
               end,
             },
-            transform_items = function(_, items)
-              if not local_snippet_filetypes[vim.bo.filetype] then
-                return items
-              end
-
-              local seen = {}
-              return vim.tbl_filter(function(item)
-                if seen[item.label] then
-                  return false
-                end
-                seen[item.label] = true
-                return true
-              end, items)
-            end,
           },
         },
       },
       keymap = {
         preset = "default",
-        ['<Tab>'] = {
-          'snippet_forward',
+        ["<Tab>"] = {
+          "snippet_forward",
           function(cmp)
             if cmp.snippet_active() then
               return cmp.accept()
@@ -49,10 +51,10 @@ return {
               return cmp.select_and_accept()
             end
           end,
-          'fallback'
+          "fallback",
         },
-        ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
-      }
-    }
-  }
+        ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      },
+    },
+  },
 }
