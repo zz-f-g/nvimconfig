@@ -94,8 +94,16 @@ keymaps.
   Paste external text in insert mode using the terminal's paste shortcut, such
   as Ctrl-Shift-V. Under SSH, ordinary `y` / `p` keep using Neovim registers;
   `"+p` / `"*p` do not retrieve the local clipboard.
-- **Dashboard:** shows a header, up to 15 recent projects, and startup information.
-  Snacks image rendering is disabled.
+- **Dashboard:** shows a header, `Projects` and `Recents` lists, and startup information.
+  Projects lists up to 10 Git roots from recent files, with keys `0` through `9`;
+  selecting one uses Snacks' default session restore/file picker behavior.
+  Recents uses the same saved Persistence sessions as `<leader>qS`, including
+  non-Git directories, ordered by session modification time and deduplicated by
+  directory. It displays up to 10 existing directories with alphabetic keys
+  starting at `a` (`a` through `j` for 10 entries); selecting one changes
+  CWD and restores its session. A directory appears after a session has been
+  saved (normally on exit with at least one named file buffer). Snacks image
+  rendering is disabled.
 
 ### Plugin and Tool Management
 
