@@ -107,12 +107,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
   desc = "Double Escape to normal mode in native terminals",
   callback = function(event)
     -- Snacks terminals already implement double Escape.
-    if not vim.b[event.buf].snacks_terminal then
-      vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {
-        desc = "Enter Normal Mode",
-        buffer = event.buf,
-      })
-    end
+    -- if not vim.b[event.buf].snacks_terminal then
+    vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {
+      desc = "Enter Normal Mode",
+      buffer = event.buf,
+    })
+    -- end
   end,
 })
 
