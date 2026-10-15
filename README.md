@@ -53,7 +53,10 @@ changes in [completion.lua](lua/plugins/completion.lua):
 - The menu displays each candidate's source, including `Local Snippets`.
 - Markdown, TeX, and plain TeX use only the local snippet provider, excluding
   both language-specific and global friendly-snippets. Their other sources are
-  still LSP, paths, and buffer words.
+  still LSP, paths, and buffer words. TeX/plain TeX additionally use VimTeX's
+  omnifunc for project-aware citations, labels, commands, and environments,
+  displayed as `VimTeX` in the menu. Completion can trigger after `\`, `{`, or
+  `,`, as well as while typing a keyword; Ctrl-Space opens the menu manually.
 - Other languages retain the default snippet source and friendly-snippets.
 - Typing `^` can trigger the local snippet source; it does not automatically
   expand a snippet.
