@@ -1,4 +1,4 @@
-local cmd = "opencode --port"
+local cmd = "opencode"
 
 local terminal_opts = {
   count = 1,
@@ -16,7 +16,8 @@ return {
   {
     "nickjvandyke/opencode.nvim",
     -- Stable releases support OpenCode v1; main targets OpenCode v2.
-    version = "*",
+    branch = "main",
+    version = false,
     dependencies = { "folke/snacks.nvim" },
     init = function()
       ---@type opencode.Opts

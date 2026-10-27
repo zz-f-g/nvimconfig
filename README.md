@@ -146,7 +146,7 @@ Markdown file. Its custom metadata includes:
 - `@done`: completion timestamp, with `completed` and `finished` as aliases
   (`<leader>Td`). Adding it checks the task; removing it unchecks the task.
 
-OpenCode runs as `opencode --port` in a right-side Snacks terminal occupying
+OpenCode runs as `opencode` in a right-side Snacks terminal occupying
 40% of the editor width. It does not automatically enter insert mode or take
 focus when started through the server hook. The action menu includes explain,
 review, fix, optimize, document, implement, test, and diagnostics prompts.
