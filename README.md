@@ -134,7 +134,7 @@ keymaps.
 | [vimtex](https://github.com/lervag/vimtex) | LaTeX compilation, document navigation, and Sioyek integration | `:VimtexCompile`, `:VimtexView`, default VimTeX mappings |
 | [typst-preview.nvim](https://github.com/chomosuke/typst-preview.nvim) | Live Typst preview with source/preview navigation | Loaded for `typst`; `:TypstPreview`, `:TypstPreviewToggle` |
 | [clangd_extensions.nvim](https://github.com/p00f/clangd_extensions.nvim) | Clang AST, type hierarchy, symbol information, and memory usage | `:ClangdAST`, `:ClangdTypeHierarchy`, `:ClangdSymbolInfo`, `:ClangdMemoryUsage` |
-| [opencode.nvim](https://github.com/nickjvandyke/opencode.nvim) | Context-aware OpenCode prompts, actions, and an integrated terminal | `<leader>aa`, `<leader>as`, `<leader>at`, `go`, `goo` |
+| [opencode.nvim](https://github.com/nickjvandyke/opencode.nvim) | Context-aware OpenCode prompts, actions, and an integrated terminal | `<leader>aa`, `<leader>as`, `<leader>at`, `<leader>al`, `go`, `goo` |
 
 ### Markdown Tasks and OpenCode
 
@@ -152,6 +152,13 @@ focus when started through the server hook. The action menu includes explain,
 review, fix, optimize, document, implement, test, and diagnostics prompts.
 `go{motion}` appends a range as context, while `goo` appends the current line.
 The ask and action bindings also work on visual selections.
+
+`<leader>al` opens the last completed text response from the current directory's
+most recently updated, unarchived root session in a new editable Markdown buffer.
+It skips reasoning and tool output, fetching older message pages if needed.
+The directory is captured when the key is pressed. The response is a snapshot,
+not a live stream; save it with `:w path.md` if desired. No conversation or source
+file is modified. This uses opencode.nvim's internal V2 server helpers.
 
 ## Language Support
 

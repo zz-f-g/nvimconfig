@@ -60,6 +60,11 @@ return {
         desc = "Toggle OpenCode",
       },
       {
+        "<leader>al",
+        function() require("utils.opencode_response").open() end,
+        desc = "OpenCode Last Response",
+      },
+      {
         "go",
         -- A trailing space appends context without submitting the prompt.
         function() return require("opencode").operator("@this ") end,
