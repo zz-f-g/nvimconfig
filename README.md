@@ -145,6 +145,23 @@ Markdown file. Its custom metadata includes:
 - `@started`: insertion timestamp, with `init` as an alias (`<leader>Ts`).
 - `@done`: completion timestamp, with `completed` and `finished` as aliases
   (`<leader>Td`). Adding it checks the task; removing it unchecks the task.
+- `@note`: short work summary (`<leader>Tm`). Inserts an empty `@note()` and
+  enters Insert mode inside the parentheses, ready to type; press `Esc` to finish.
+  Pressing the mapping again removes the note rather
+  than editing it. Edit existing notes directly in the Markdown text.
+
+Keep longer work details in the indented Markdown body, and use a separate task
+for each occurrence of recurring work to preserve its history:
+
+```markdown
+- [x] Scheduled maintenance @done(26-11-08 18:00) @note(Verified backups and cleared disk alerts)
+  - Successfully tested a sample restore.
+  - Removed expired logs, freeing 12 GB.
+```
+
+`<leader>TR` removes all metadata, including notes. Removing `@done` also
+unchecks the task, so this mapping should not be used to reset recurring work
+whose history needs to be retained.
 
 OpenCode runs as `opencode` in a right-side Snacks terminal occupying
 40% of the editor width. It does not automatically enter insert mode or take
