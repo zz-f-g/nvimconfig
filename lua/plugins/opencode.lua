@@ -65,6 +65,11 @@ return {
         desc = "OpenCode Last Response",
       },
       {
+        "<leader>ah",
+        function() require("utils.opencode_response").history() end,
+        desc = "OpenCode Response History",
+      },
+      {
         "go",
         -- A trailing space appends context without submitting the prompt.
         function() return require("opencode").operator("@this ") end,

@@ -134,7 +134,7 @@ keymaps.
 | [vimtex](https://github.com/lervag/vimtex) | LaTeX compilation, document navigation, and Sioyek integration | `:VimtexCompile`, `:VimtexView`, default VimTeX mappings |
 | [typst-preview.nvim](https://github.com/chomosuke/typst-preview.nvim) | Live Typst preview with source/preview navigation | Loaded for `typst`; `:TypstPreview`, `:TypstPreviewToggle` |
 | [clangd_extensions.nvim](https://github.com/p00f/clangd_extensions.nvim) | Clang AST, type hierarchy, symbol information, and memory usage | `:ClangdAST`, `:ClangdTypeHierarchy`, `:ClangdSymbolInfo`, `:ClangdMemoryUsage` |
-| [opencode.nvim](https://github.com/nickjvandyke/opencode.nvim) | Context-aware OpenCode prompts, actions, and an integrated terminal | `<leader>aa`, `<leader>as`, `<leader>at`, `<leader>al`, `go`, `goo` |
+| [opencode.nvim](https://github.com/nickjvandyke/opencode.nvim) | Context-aware OpenCode prompts, actions, terminal, and response history | `<leader>aa`, `<leader>as`, `<leader>at`, `<leader>al`, `<leader>ah`, `go`, `goo` |
 
 ### Markdown Tasks and OpenCode
 
@@ -170,12 +170,20 @@ review, fix, optimize, document, implement, test, and diagnostics prompts.
 `go{motion}` appends a range as context, while `goo` appends the current line.
 The ask and action bindings also work on visual selections.
 
-`<leader>al` opens the last completed text response from the current directory's
-most recently updated, unarchived root session in a new editable Markdown buffer.
+`<leader>al` appends the last completed text response from the current directory's
+most recently updated, unarchived root session below the current cursor line.
 It skips reasoning and tool output, fetching older message pages if needed.
-The directory is captured when the key is pressed. The response is a snapshot,
-not a live stream; save it with `:w path.md` if desired. No conversation or source
-file is modified. This uses opencode.nvim's internal V2 server helpers.
+The directory, target buffer, and cursor line are captured when the key is pressed.
+The response is a snapshot, not a live stream. Insertion edits the original buffer
+without saving it or changing its filetype; undo with `u`. If the buffer changes,
+is closed, or is not modifiable before insertion, the operation is cancelled.
+This uses opencode.nvim's internal V2 server helpers.
+
+`<leader>ah` opens a Snacks picker for the same latest session, listing completed
+text responses newest first with a timestamp, first-line summary, and Markdown
+preview. Search matches the full text of loaded responses. Press `<C-l>` to load
+older pages, `<Enter>` to append one response below the original cursor line, or `<Esc>` to
+cancel. Reasoning, tool logs, and unfinished responses are excluded.
 
 ## Language Support
 
