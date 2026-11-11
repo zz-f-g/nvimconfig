@@ -129,12 +129,34 @@ keymaps.
 | [outline.nvim](https://github.com/hedyhli/outline.nvim) | Dedicated symbol outline, using available symbol providers | `<leader>o`, `:Outline` |
 | [tabular](https://github.com/godlygeek/tabular) | Align text around a delimiter | `:Tabularize /pattern/` |
 | [img-clip.nvim](https://github.com/HakonHarnes/img-clip.nvim) | Save clipboard images and insert filetype-specific references | `<leader>p`, `:PasteImage` |
-| [vivify.vim](https://github.com/jannis-baum/vivify.vim) | Markdown preview with content and cursor synchronization | `:Vivify`; requires the `viv` application |
+| [nvim-md-preview](https://github.com/ywsrock/nvim-md-preview) | Browser Markdown preview with cursor-following scroll and click-to-source navigation | `<leader>mp`, `:MarkdownPreview`, `:MarkdownPreviewStop` |
 | [checkmate.nvim](https://github.com/bngarren/checkmate.nvim) | Markdown task lists with checked/unchecked states and metadata | Matching Markdown task files; metadata bindings below |
 | [vimtex](https://github.com/lervag/vimtex) | LaTeX compilation, document navigation, and Sioyek integration | `:VimtexCompile`, `:VimtexView`, default VimTeX mappings |
 | [typst-preview.nvim](https://github.com/chomosuke/typst-preview.nvim) | Live Typst preview with source/preview navigation | Loaded for `typst`; `:TypstPreview`, `:TypstPreviewToggle` |
 | [clangd_extensions.nvim](https://github.com/p00f/clangd_extensions.nvim) | Clang AST, type hierarchy, symbol information, and memory usage | `:ClangdAST`, `:ClangdTypeHierarchy`, `:ClangdSymbolInfo`, `:ClangdMemoryUsage` |
 | [opencode.nvim](https://github.com/nickjvandyke/opencode.nvim) | Context-aware OpenCode prompts, actions, terminal, and response history | `<leader>aa`, `<leader>as`, `<leader>at`, `<leader>al`, `<leader>ah`, `go`, `goo` |
+
+### Markdown Preview
+
+[markdown-preview.lua](lua/plugins/markdown-preview.lua) loads nvim-md-preview
+for Markdown buffers or its commands. Previewing is restricted to Markdown; it
+does not start automatically when a file opens.
+
+- `<leader>mp` toggles the preview in a Markdown buffer.
+- `:MarkdownPreview` opens it in the default browser;
+  `:MarkdownPreviewStop` stops the server.
+- Moving the editor cursor scrolls the preview to the corresponding content
+  block. Clicking a preview paragraph moves the Neovim cursor to its source
+  line. This is block/line-level navigation, not exact character-level inverse
+  search like a typeset document's source map.
+- The preview follows the active Markdown buffer and renders unsaved edits.
+  KaTeX math, Mermaid diagrams, and syntax highlighting are bundled with the
+  Rust preview binary; Node.js and Deno are not required.
+- `:MdPreviewDiff` toggles the Git diff overlay; it is enabled by default for
+  files in Git repositories. `:MdPreviewExport {format}` exports documents.
+- `:MdPreviewInfo` shows the preview URL; `:checkhealth md_preview` checks the
+  installation. `:MdPreviewInstall` reinstalls or updates the binary and export
+  tools, and also runs as lazy.nvim's build hook.
 
 ### Markdown Tasks and OpenCode
 
@@ -199,7 +221,7 @@ the upstream server implementations.
 | Typst | `tinymist` | typstyle through Conform and Tinymist; PDF export on typing; Tinymist semantic tokens disabled; live preview opened in Firefox. |
 | LaTeX / plain TeX | VimTeX | Compilation and Sioyek forward/inverse search; local mathematical and environment snippets. No TeX LSP is explicitly added. |
 | Lua | LazyVim's `lua_ls` and lazydev integration | StyLua; Neovim API completion and library-aware Lua development support. |
-| Markdown | Vivify, Checkmate, and local snippets | Visible markup, wrapping, task metadata, image references, and TeX-style mathematical snippets. |
+| Markdown | nvim-md-preview, Checkmate, and local snippets | Browser preview with source/preview navigation, visible markup, wrapping, task metadata, image references, and TeX-style mathematical snippets. |
 
 Manual formatting uses Conform with a three-second timeout and LSP fallback
 when an external formatter is unavailable. Autosaving does not enable automatic
@@ -254,7 +276,7 @@ Install the external tools needed for your workflows separately:
 | Lua | `lua-language-server`, `stylua` |
 | Typst | `tinymist`, `typstyle`, Firefox; preview dependencies described below |
 | LaTeX | A TeX distribution, `latexmk`, and `sioyek` |
-| Markdown preview | The Vivify `viv` application and `curl` |
+| Markdown preview | A browser and the Rust preview binary installed by `:MdPreviewInstall`; export tools are managed by the upstream installer |
 | AI integration | An installed `opencode` CLI and its model/provider setup |
 
 Image pasting needs a platform clipboard backend supported by img-clip.
@@ -274,6 +296,12 @@ Current behavior includes:
   HTTPS. It is deferred until a Typst buffer loads the plugin, so ordinary
   non-Typst use does not initialize the preview plugin. No local dependency
   paths are explicitly configured.
+- **Markdown preview:** the `:MdPreviewInstall` build hook downloads the Rust
+  preview binary and export tools (Pandoc/Typst) independently of SSH plugin
+  cloning. Prepare these before offline use. Preview assets, including KaTeX,
+  Mermaid, and highlighting, are bundled; remote document images or links can
+  still require network access. Downloaded artifacts are stored under
+  `stdpath("data") .. "/nvim-md-preview/"`.
 - **On-demand features:** remote image operations in img-clip, Snacks icon
   data, and fzf-lua's online theme installer can access HTTP/HTTPS independently
   of lazy.nvim.
@@ -281,9 +309,13 @@ Current behavior includes:
   enabled. Completely offline use requires the plugin repositories to be
   available already. The lockfile records versions, not plugin contents or
   executable dependencies.
-- **Local services:** Vivify, OpenCode integration, and Typst preview use local
+- **Local services:** Markdown preview, OpenCode integration, and Typst preview use local
   HTTP/WebSocket communication. Their availability is separate from external
   HTTP access; OpenCode's model backend has its own connectivity requirements.
+  Markdown preview listens on `127.0.0.1` (port `9876`, or the next free port).
+  When Neovim runs over SSH, forward the actual preview port to the local
+  machine and open the URL in the local browser; OSC 52 does not provide this
+  connection.
 
 Before moving to an offline machine, prepare plugin repositories, any required
 binary artifacts, language tools, parsers, and project dependencies. Typst
